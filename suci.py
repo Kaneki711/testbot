@@ -6,7 +6,7 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,requests,urllib
 
 cl = LINETCR.LINE()
-cl.login(token="EnZgGjZqBaw8sVRBHbRe.uHwIvq3v1iyKQZqnNrhKFG.clRy8nlbIQhxuMTZGY9e4nIB/Nb9GBmKNekBf2aTyZI="
+cl.login(qr=True)
 cl.loginResult()
 
 #cl = LINETCR.LINE()
@@ -17,93 +17,98 @@ print u"login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage ="""||=====  F O R   U S E R  =====||
-�✒ Mention       - Mention All Member Group
-�✒ Lurking       - Set Point Read
-�✒ Result        - Reading Point
-�✒ Ginfo         - Info Grup
-||===== F O R   A D M I N =====||
-�✒ Glist         - List Group BOT
-�✒ Cancel        - Cancel All Pending Grup
-�✒ Mid @         - Get MID 
-�✒ Invite        - Invite Via Send Contact
-�✒ Invite:       - Via MID
-�✒ Whitelist @   - Via Tag
-�✒ Whitelist:    - Via Mid
-�✒ Whitelist     - Via Send Contact
-�✒ Blacklist @   - Via Tag
-�✒ Blacklist:    - Via Mid
-�✒ Blacklist     - Via Send Contact
-�✒ Clear ban     - Delete All Blacklist
-�✒ Link on       - Open QR
-�✒ Link off      - Close QR
-�✒ Gurl          - Open QR And Get Link
-�✒ Url           - Get QR Link
-�✒ Gname         - Change Name Group
-�✒ Banlist       - Cek Tersangka Kriminal
-�✒ Details grup  - Via Gid
-�✒ Inviteme:     - Via Gid
-�✒ Info grup
-�✒ Clear grup
-||===== F O R  K I C K E R =====||
-||��✒ Nuke
-||��✒ Ratakan
-||��✒ Kick @        - Via Tag
-||��✒ Kick:         - Via MID
-||===== F O R  P L A Y E R =====||
-||��✒ Bc:ct 
-||��✒ Bc:grup
-||��✒ Block @
-||��✒ Blocklist
-||��✒ Spam on/off
-||��✒ Uni
-||��✒ Bot:ct        - Broadcast to All Contact BOT
-||��✒ Bot:grup      - Broadcast to All Grup Joined BOT
-||��✒ Allname:      - Change All Name BOT
-||��✒ Allbio:       - Change All Bio BOT
-||��✒ Bot sp        - Tes Speed BOT
-||��✒ Speed         - Tes Speed
-||��✒ Mycopy @      - Copy Profile 
-||��✒ Mybackup @    - Backup Profile
-||========================||
+helpMessage ="""
 
+=======================================
+KANEKI SELFBOT TEAM
+=======================================
 
-||===== S E T T I G S =====||          
-|| [Like:on/off]     
-|| [Add on/off] 	 
-|| [Auto join on/off] 	   
-|| [Contact on/off] 	
-|| [Leave on/off]  
-|| [Share on/off]           
-|| [Add on/off] 		   
-|| [Jam on/off]			   
-|| [Jam say:]			   
-|| [Com on/off]	
-|| [Message set:]	
-|| [Comment set:]	
-|| [Pesan add:]	
-||===== P R O T E C T =====||        
-|| [Panick:on/off]      
-|| [Protect on]			   
-|| [Qrprotect on/off]			   
-|| [Inviteprotect on/off]			   
-|| [Cancelprotect on/off]		   
-|| [Staff add/remove @]	   
-||======= FOR ADMIN =======||
+♛ Mention       
+♛ Lurking       
+♛ Result        
+♛ Ginfo         
+♛ Glist         
+♛ Cancel        
+♛ Mid @          
+♛ Invite        
+♛ Invite:      
+♛ Whitelist @  
+♛ Whitelist:    
+♛ Whitelist    
+♛ Blacklist @   
+♛ Blacklist:    
+♛ Blacklist     
+♛ Clear ban     
+♛ Link on       
+♛ Link off      
+♛ Gurl          
+♛ Url           
+♛ Gname         
+♛ Banlist       
+♛ Details grup  
+♛ Inviteme:     
+♛ Info grup
+♛ Clear grup
 
-               ✯==== Creator ====✯
-	
-                  ATTENTION!!!!
-  Creator nya sok tau bahasa inggris :V
+====================================
+COMMAND FOR GROUP
+====================================
+
+۩ Nuke
+۩ Ratakan
+۩ Kick @        - Via Tag
+۩ Kick:         - Via MID
+۩ Bc:ct 
+۩ Bc:grup
+۩ Block @
+۩ Blocklist
+۩ Spam on/off
+۩ Uni
+۩ Bot:ct        - Broadcast to All Contact BOT
+۩ Bot:grup      - Broadcast to All Grup Joined BOT
+۩ Allname:      - Change All Name BOT
+۩ Allbio:       - Change All Bio BOT
+۩ Bot sp        - Tes Speed BOT
+۩ Speed         - Tes Speed
+۩ Mycopy @      - Copy Profile 
+۩ Mybackup @    - Backup Profile          
+۩ [Like:on/off]      
+۩ [Add on/off] 	 
+۩ [Auto join on/off] 	   
+۩ [Contact on/off] 	
+۩ [Leave on/off]  
+۩ [Share on/off]           
+۩ [Add on/off] 		   
+۩ [Jam on/off]			   
+۩ [Jam say:]			   
+۩ [Com on/off]	
+۩ [Message set:]	
+۩ [Comment set:]	
+۩ [Pesan add:]	
+        
+====================== 
+COMMAND PROTECTED
+======================
+
+☠ [Protect on]			   
+☠ [Qrprotect on/off]			    
+☠ [Inviteprotect on/off]			   
+☠ [Cancelprotect on/off]		   
+☠ [Staff add/remove @]	   
+
+================================
+TEAM CREATOR KANEKI TEAM BOT 
+================================
+
 """
 helo=""
 
 KAC=[cl]
 #KAC=[cl]AC=[cl,ki,ki2,ki3,ki4,ki5,ki6,ki7,ki8,ki9,k1,k2,k3,k4,k5,k6,k6,k8,k9,w1,w2,w3,w4,w5,w6,w7,w8,w9,l1,l2,l3,l4,l5]
 mid = cl.getProfile().mid
-Bots = [mid,"u1f41296217e740650e0448b96851a3e2"]
-admsa = "ub76a0153a283da9a1443dfb043181335"
-admin = "ub76a0153a283da9a1443dfb043181335"
+Bots = [mid,"uc77fd25b59f6e563d84f1334f3fed10b"]
+admsa = "uc77fd25b59f6e563d84f1334f3fed10b"
+admin = "uc77fd25b59f6e563d84f1334f3fed10b"
 
 wait = {
     'contact':False,
@@ -112,9 +117,9 @@ wait = {
     'leaveRoom':True,
     'timeline':False,
     'autoAdd':True,
-    'message':"✟Ƥɾøтerangkan lah ",
+    'message':"Ciee Fans Yah :D ",
     "lang":"JP",
-    "comment":"Auto Like By ✟Ƥɾøтøтуρє✟ pekok ",
+    "comment":"Auto like by line.me/ti/p/@enr7503k ",
     "commentOn":False,
     "likeOn":False,
     "commentBlack":{},
